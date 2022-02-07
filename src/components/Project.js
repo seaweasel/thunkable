@@ -15,8 +15,14 @@ const Project = props => {
    const nameChangeHandler = event => {
       updateName(event.target.value);
    }
+
    const nameElement = props.editting ?
-      <input value={name} onChange={nameChangeHandler} type='text' id='name'/>
+      <input autoFocus
+             onBlur={() => props.updateProjectToEditHandler('')}
+             value={name} onChange={nameChangeHandler}
+             type='text'
+             id='name'
+             onTouchEnd={() => props.updateProjectToEditHandler('')}/>
       : name;
 
 
@@ -30,8 +36,8 @@ const Project = props => {
       justifyContent:'space-between'}}>
       <div>
          <img src={icon} height='30px' width='30px' style={{borderRadius:'50%'}}/>
-         <span onClick={() => props.updateProjectToEditHandler(props.id)}>{nameElement}</span>
-         <img src={edit} height='30px' width='30px' style={{borderRadius:'50%'}}/>
+         <span>{nameElement}</span>
+         <img onClick={() => props.updateProjectToEditHandler(props.id)} src={edit} height='30px' width='30px' style={{borderRadius:'50%'}}/>
       </div>
       {dateString} {hours}:{minutes} {amPM}
       <img onClick={() => props.removeProjectHandler(props.id)} src={trash} height='20px' width='20px' style={{borderRadius:'50%'}}/>
