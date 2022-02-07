@@ -24,15 +24,15 @@ const initialProjects = [
 ];
 
 function App() {
+   const [projects, updateProjects] = useState(initialProjects);
+
    const newProjectHandler = project => {
-      console.log(project);
+      updateProjects([...projects, {name:'',id:uuidv4(),date:Date.now()}])
    }
 
    const removeProjectHandler = id => {
-      console.log(id);
+      updateProjects(projects.filter(project => project.id !== id));
    }
-
-   const [projects, updateProjects] = useState(initialProjects);
 
    return <div>
       <Header newProjectHandler={newProjectHandler}/>
