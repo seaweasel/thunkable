@@ -21,7 +21,7 @@ const Project = props => {
              onBlur={() => props.updateProjectToEditHandler('')}
              value={name} onChange={nameChangeHandler}
              type='text'
-             id='name'
+             id={props.id}
              onTouchEnd={() => props.updateProjectToEditHandler('')}/>
       : name;
 

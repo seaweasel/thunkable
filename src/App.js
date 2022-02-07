@@ -32,7 +32,7 @@ function App() {
 
    const newProjectHandler = () => {
       const id = uuidv4();
-      updateProjects([...projects, {name:'',id:id,date:Date.now()}])
+      updateProjects([...projects, {name:'new project',id:id,date:Date.now()}])
       updateProjectToEdit(id);
    }
 
@@ -41,7 +41,7 @@ function App() {
    }
 
 
-   return <div>
+   return <div className='content'>
       <Header newProjectHandler={newProjectHandler}/>
       <ProjectList projectToEdit={projectToEdit}
                    updateProjectToEditHandler={updateProjectToEdit}

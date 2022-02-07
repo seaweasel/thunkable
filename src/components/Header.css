@@ -1,5 +1,4 @@
 .header {
-    background-color: aliceblue;
     width: 100%;
     position: relative;
 }
@@ -17,4 +16,23 @@
     padding:15px;
     background-color: #4A475F;
     border-radius:50%
+}
+
+.beaver {
+    padding-left: 5%;
+    margin-bottom: 20px;
+    margin-left: -10px;
+    height: 8%;
+    width: 8%;
+}
+
+.linebreak {
+    border-bottom: 1px solid #979797;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    padding: 0 0 0 5%;
+    margin: 30px 0 0;
 }
