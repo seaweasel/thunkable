@@ -23,7 +23,7 @@ const Project = props => {
          <img src={edit} height='30px' width='30px' style={{borderRadius:'50%'}}/>
       </div>
       {dateString} {hours}:{minutes} {amPM}
-      <img onClick={() => props.removeHandler.remove(props.id)} src={trash} height='20px' width='20px' style={{borderRadius:'50%'}}/>
+      <img onClick={() => props.removeProjectHandler(props.id)} src={trash} height='20px' width='20px' style={{borderRadius:'50%'}}/>
    </div>
 }
 

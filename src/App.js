@@ -3,8 +3,9 @@ import Header from "./components/Header";
 
 import {v4 as uuidv4} from 'uuid';
 import ProjectList from "./components/ProjectList";
+import {useState} from "react";
 
-const projects = [
+const initialProjects = [
    {
       name: 'project 2',
       date: Date.now(),
@@ -23,13 +24,19 @@ const projects = [
 ];
 
 function App() {
-   const newProject = project => {
+   const newProjectHandler = project => {
       console.log(project);
    }
 
+   const removeProjectHandler = id => {
+      console.log(id);
+   }
+
+   const [projects, updateProjects] = useState(initialProjects);
+
    return <div>
-      <Header newProjectHandler={newProject}/>
-      <ProjectList projects={projects}/>
+      <Header newProjectHandler={newProjectHandler}/>
+      <ProjectList updateProjectHandler={updateProjects} removeProjectHandler={removeProjectHandler}  projects={projects}/>
    </div>;
 }
 
