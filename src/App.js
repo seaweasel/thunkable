@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import {v4 as uuidv4} from 'uuid';
 import ProjectList from "./components/ProjectList";
 import {useState} from "react";
+import {Helmet} from "react-helmet";
 
 const initialProjects = [
    {
@@ -42,6 +43,10 @@ function App() {
 
 
    return <div className='content'>
+      <Helmet>
+         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css"/>
+      </Helmet>
+
       <Header newProjectHandler={newProjectHandler}/>
       <ProjectList projectToEdit={projectToEdit}
                    updateProjectToEditHandler={updateProjectToEdit}
