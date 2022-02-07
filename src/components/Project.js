@@ -3,6 +3,8 @@ import trash from '../UI_Assignment_Assets_10-17-18/DeleteIcon.svg';
 import edit from '../UI_Assignment_Assets_10-17-18/EditIcon.svg';
 import {useState} from "react";
 
+import './Project.css';
+
 const Project = props => {
    const date = new Date(props.date);
    const dateString = date.toLocaleDateString('en-US',{  year: 'numeric', month: 'short', day: 'numeric' });
@@ -26,14 +28,7 @@ const Project = props => {
       : name;
 
 
-   return <div style={{
-      borderTop:'2px solid #F7F9FD',
-      borderBottom:'2px solid #F7F9FD',
-      marginTop:'-1px',
-      marginBottom:'-1px',
-      margin: '0px 0px 0px 5%',
-      display:'flex',
-      justifyContent:'space-between'}}>
+   return <div className='project'>
       <div>
          <img src={icon} height='30px' width='30px' style={{borderRadius:'50%'}}/>
          <span>{nameElement}</span>

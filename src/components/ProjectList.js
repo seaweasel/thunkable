@@ -11,35 +11,32 @@ const ProjectList = props => {
       props.updateProjectHandler(items);
    }
 
-   return <div className="App">
-      <header className="App-header">
-         <DragDropContext onDragEnd={handleOnDragEnd}>
-            <Droppable droppableId="projects">
-               {(provided) => (
-                  <ul {...provided.droppableProps} ref={provided.innerRef}>
-                     {props.projects.map((project, index) => {
-                        return (
-                           <Draggable key={project.id} draggableId={project.id} index={index}>
-                              {(provided) => (
-                                 <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                    <Project editting={props.projectToEdit===project.id}
-                                             updateProjectToEditHandler={props.updateProjectToEditHandler}
-                                             removeProjectHandler={props.removeProjectHandler}
-                                             id={project.id} name={project.name}
-                                             date={project.date}/>
-                                 </li>
-                              )}
-                           </Draggable>
-                        );
-                     })}
-                     {provided.placeholder}
-                  </ul>
-               )}
-            </Droppable>
-         </DragDropContext>
+   return <header>
+            <DragDropContext onDragEnd={handleOnDragEnd}>
+               <Droppable droppableId="projects">
+                  {(provided) => (
+                     <ul style={{listStyleType: 'none'}}{...provided.droppableProps} ref={provided.innerRef}>
+                        {props.projects.map((project, index) => {
+                           return (
+                              <Draggable key={project.id} draggableId={project.id} index={index}>
+                                 {(provided) => (
+                                    <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                       <Project editting={props.projectToEdit===project.id}
+                                                updateProjectToEditHandler={props.updateProjectToEditHandler}
+                                                removeProjectHandler={props.removeProjectHandler}
+                                                id={project.id} name={project.name}
+                                                date={project.date}/>
+                                    </li>
+                                 )}
+                              </Draggable>
+                           );
+                        })}
+                        {provided.placeholder}
+                     </ul>
+                  )}
+               </Droppable>
+            </DragDropContext>
       </header>
-   </div>
-
 }
 
 export default ProjectList;
