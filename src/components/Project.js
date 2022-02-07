@@ -10,7 +10,7 @@ const Project = props => {
    const dateString = date.toLocaleDateString('en-US',{  year: 'numeric', month: 'short', day: 'numeric' });
    const minutes = date.getMinutes();
    const hours = date.getHours() % 12;
-   const amPM = date.getHours() > 11 ? 'am' : 'pm';
+   const amPM = date.getHours() < 11 ? 'am' : 'pm';
 
 
    const [name, updateName] = useState(props.name);
@@ -30,8 +30,8 @@ const Project = props => {
 
    return <div className='project'>
       <div>
-         <img src={icon} height='30px' width='30px' style={{borderRadius:'50%'}}/>
-         <span>{nameElement}</span>
+         <img className='beaver-icon' src={icon} height='30px' width='30px' style={{borderRadius:'50%'}}/>
+         <span className='name'>{nameElement}</span>
          <img onClick={() => props.updateProjectToEditHandler(props.id)} src={edit} height='30px' width='30px' style={{borderRadius:'50%'}}/>
       </div>
       {dateString} {hours}:{minutes} {amPM}

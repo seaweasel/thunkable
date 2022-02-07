@@ -1,8 +1,18 @@
 .project {
-    height: 4rem;
+    height: 5rem;
     border-top: 2px solid #F7F9FD;
     border-bottom: 2px solid #F7F9FD;
-    margin: -1px 0px -1px 5%;
+    margin: -1px 5%;
     display:flex;
     justify-content: space-between;
+    background-color: #FDFDFD;
+}
+
+.beaver-icon {
+    width: 2rem;
+}
+
+.name {
+    margin-left: 1rem;
+    margin-right: 1rem;
 }

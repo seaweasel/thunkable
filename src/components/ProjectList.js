@@ -11,11 +11,10 @@ const ProjectList = props => {
       props.updateProjectHandler(items);
    }
 
-   return <header>
-            <DragDropContext onDragEnd={handleOnDragEnd}>
+   return   <DragDropContext onDragEnd={handleOnDragEnd}>
                <Droppable droppableId="projects">
                   {(provided) => (
-                     <ul style={{listStyleType: 'none'}}{...provided.droppableProps} ref={provided.innerRef}>
+                     <ul style={{listStyleType: 'none', marginTop: '3rem'}}{...provided.droppableProps} ref={provided.innerRef}>
                         {props.projects.map((project, index) => {
                            return (
                               <Draggable key={project.id} draggableId={project.id} index={index}>
@@ -36,7 +35,6 @@ const ProjectList = props => {
                   )}
                </Droppable>
             </DragDropContext>
-      </header>
 }
 
 export default ProjectList;
