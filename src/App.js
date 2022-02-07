@@ -9,34 +9,45 @@ const initialProjects = [
    {
       name: 'project 2',
       date: Date.now(),
-      id: uuidv4()
+      id: uuidv4(),
+      editing: false
    },
    {
       name: 'project 3',
       date: Date.now(),
-      id: uuidv4()
+      id: uuidv4(),
+      editing: false
    },
    {
       name: 'project 1',
       date: Date.now(),
-      id: uuidv4()
+      id: uuidv4(),
+      editing: false
    }
 ];
 
 function App() {
    const [projects, updateProjects] = useState(initialProjects);
+   const [projectToEdit, updateProjectToEdit] = useState(null);
 
-   const newProjectHandler = project => {
-      updateProjects([...projects, {name:'',id:uuidv4(),date:Date.now()}])
+   const newProjectHandler = () => {
+      const id = uuidv4();
+      updateProjects([...projects, {name:'',id:id,date:Date.now()}])
+      updateProjectToEdit(id);
    }
 
    const removeProjectHandler = id => {
       updateProjects(projects.filter(project => project.id !== id));
    }
 
+
    return <div>
       <Header newProjectHandler={newProjectHandler}/>
-      <ProjectList updateProjectHandler={updateProjects} removeProjectHandler={removeProjectHandler}  projects={projects}/>
+      <ProjectList projectToEdit={projectToEdit}
+                   updateProjectToEditHandler={updateProjectToEdit}
+                   updateProjectHandler={updateProjects}
+                   removeProjectHandler={removeProjectHandler}
+                   projects={projects}/>
    </div>;
 }
 

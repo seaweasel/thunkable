@@ -10,7 +10,7 @@ const Header = props => {
       <h1 style={{padding: '0 0 0 5%', margin: '0'}}>MY PROJECTS</h1>
       <div style={{borderBottom: '1px solid black', margin: '0', padding: '0'}}></div>
       <img className='half-out-button'
-           onClick={() => props.newProjectHandler({})}
+           onClick={() => props.newProjectHandler()}
            src={plus_sign}/>
    </div>
 

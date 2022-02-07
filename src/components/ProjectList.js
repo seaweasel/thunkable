@@ -8,7 +8,6 @@ const ProjectList = props => {
       const items = Array.from(props.projects);
       const [reorderedItem] = items.splice(result.source.index, 1);
       items.splice(result.destination.index, 0, reorderedItem);
-
       props.updateProjectHandler(items);
    }
 
@@ -23,7 +22,11 @@ const ProjectList = props => {
                            <Draggable key={project.id} draggableId={project.id} index={index}>
                               {(provided) => (
                                  <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                    <Project removeProjectHandler={props.removeProjectHandler}  id={project.id} name={project.name} date={project.date}/>
+                                    <Project editting={props.projectToEdit===project.id}
+                                             updateProjectToEditHandler={props.updateProjectToEditHandler}
+                                             removeProjectHandler={props.removeProjectHandler}
+                                             id={project.id} name={project.name}
+                                             date={project.date}/>
                                  </li>
                               )}
                            </Draggable>
